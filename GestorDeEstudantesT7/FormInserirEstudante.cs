@@ -105,5 +105,10 @@ namespace GestorDeEstudantesT7
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void textBoxEndereco_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
