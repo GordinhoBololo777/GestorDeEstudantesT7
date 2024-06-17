@@ -81,6 +81,14 @@ namespace GestorDeEstudantesT7
                 meuBancoDeDados.fecharConexao();
                 return false;
             }
+
+            public bool apagarestudantes(int id)
+            {
+                MySqlCommand comando = new MySqlCommand("DELETE FROM 'estudantes' WHERE 'id' =@id");
+                comando.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+
+                
+            }
         }
     }
 }

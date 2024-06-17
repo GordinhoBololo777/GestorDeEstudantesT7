@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,9 +43,38 @@ namespace GestorDeEstudantesT7
 
         private void dataGridViewListaDeAlunos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            FormAtualizarApagarEstudante formAtualizarApagarEstudante = new FormAtualizarApagarEstudante();
+
+            formAtualizarApagarEstudante.textBoxID.Text =
+                dataGridViewListaDeAlunos.CurrentRow[0].Value; ToString();
+            formAtualizarApagarEstudante.textBoxID.Text =
+            dataGridViewListaDeAlunos.CurrentRow.Cells[1].Value.ToString();
+            formAtualizarApagarEstudante.textBoxSobrenome.Text =
+                dataGridViewListaDeAlunos.CurrentRow.Cells[2].Value.ToString();
+
+            formAtualizarApagarEstudante.dateTimePickerNascimento.Value =
+                (DateTime)dataGridViewListaDeAlunos.CurrentRow.Cells[3].Value
+
+
+                if (dataGridViewListaDeAlunos.CurrentRow.Cells[4].Value.ToString() == "Feminino") 
+            {
+                formAtualizarApagarEstudante.radioButtonFeminino.Checked = true;
+
+            }
+            else
+            {
+                formAtualizarApagarEstudante.radioButtonMasculino.Checked = true;
+            }
+
+            byte[] foto;
+            foto = (byte[])dataGridViewListaDeAlunos.CurrentRow.Cells[7].Value;
+            MemoryStream fotoDoAluno = new MemoryStream(foto);
+            formAtualizarApagarEstudante.pictureBoxFoto.Image =
+                Image.FromStream(fotoDoAluno);  
+
+            formAtualizarApagarEstudante.Show();
 
         }
-
         private void buttonAtualizar_Click(object sender, EventArgs e)
         {
             //Atualiza a lista de estudantes.
