@@ -181,7 +181,6 @@
             this.textBoxEndereco.Name = "textBoxEndereco";
             this.textBoxEndereco.Size = new System.Drawing.Size(158, 48);
             this.textBoxEndereco.TabIndex = 12;
-            this.textBoxEndereco.TextChanged += new System.EventHandler(this.textBoxEndereco_TextChanged);
             // 
             // pictureBoxFoto
             // 
