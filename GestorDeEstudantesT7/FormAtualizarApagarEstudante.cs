@@ -38,6 +38,44 @@ namespace GestorDeEstudantesT7
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Referência a ID do aluno.
+                int idDoAluno = Convert.ToInt32(textBoxID.Text);
+
+                // Mostrar uma caixa de diálogo perguntando se o usuário
+                // tem certeza de que quer apagar o aluno.
+                if (MessageBox.Show("Tem certeza que deseja apagar o aluno?",
+                    "Apagar Estudante", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (estudante.apagarEstudante(idDoAluno))
+                    {
+                        MessageBox.Show("Aluno apagado!",
+                            "Apagar Estudante", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+
+                        // Limpa as caixas de texto.
+                        textBoxID.Text = "";
+                        textBoxNome.Text = "";
+                        textBoxTelefone.Text = "";
+                        textBoxEndereco.Text = "";
+                        dateTimePickerNascimento.Value = DateTime.Now;
+                        pictureBoxFoto.Image = null;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aluno não apagado!",
+                            "Apagar Estudante", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch 
+            {
+                MessageBox.Show("Ocorreu um erro.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
             // Esta linha só existe em "buttonSalvar_Click(...)"
             int id = Convert.ToInt32(textBoxID.Text);
 
@@ -108,36 +146,45 @@ namespace GestorDeEstudantesT7
 
         private void buttonApagar_Click(object sender, EventArgs e)
         {
-            // Referência a ID do aluno.
-            int idDoAluno = Convert.ToInt32(textBoxID.Text);
-
-            // Mostrar uma caixa de diálogo perguntando se o usuário
-            // tem certeza de que quer apagar o aluno.
-            if(MessageBox.Show("Tem certeza que deseja apagar o aluno?",
-                "Apagar Estudante", MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
-                if (estudante.apagarEstudante(idDoAluno))
-                {
-                    MessageBox.Show("Aluno apagado!",
-                        "Apagar Estudante", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                // Referência a ID do aluno.
+                int idDoAluno = Convert.ToInt32(textBoxID.Text);
 
-                    // Limpa as caixas de texto.
-                    textBoxID.Text = "";
-                    textBoxNome.Text = "";
-                    textBoxTelefone.Text = "";
-                    textBoxEndereco.Text = "";
-                    dateTimePickerNascimento.Value = DateTime.Now;
-                    pictureBoxFoto.Image = null;
-                }
-                else
+                // Mostrar uma caixa de diálogo perguntando se o usuário
+                // tem certeza de que quer apagar o aluno.
+                if (MessageBox.Show("Tem certeza que deseja apagar o aluno?",
+                    "Apagar Estudante", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MessageBox.Show("Aluno não apagado!",
-                        "Apagar Estudante", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                    if (estudante.apagarEstudante(idDoAluno))
+                    {
+                        MessageBox.Show("Aluno apagado!",
+                            "Apagar Estudante", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+
+                        // Limpa as caixas de texto.
+                        textBoxID.Text = "";
+                        textBoxNome.Text = "";
+                        textBoxTelefone.Text = "";
+                        textBoxEndereco.Text = "";
+                        dateTimePickerNascimento.Value = DateTime.Now;
+                        pictureBoxFoto.Image = null;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aluno não apagado!",
+                            "Apagar Estudante", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
                 }
             }
+            catch 
+            {
+                MessageBox.Show("Ocorreu um erro.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+            
         }
 
         // Variável global do tipo MeuBancoDeDados...

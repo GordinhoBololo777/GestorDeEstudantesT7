@@ -44,5 +44,73 @@ namespace GestorDeEstudantesT7
             panelTotalDeEstudos.BackColor = Color.Black;
             labelTotalDeEstudos.ForeColor = corPaielTotal;
         }
+
+        private void label2_MouseEnter(object sender, EventArgs e)
+        {
+            panelMeninos.BackColor = Color.Black;
+            labelMeninos.ForeColor = corPaielTotal;
+
+        }
+
+        private void labelTotalDeEstudos_MouseLeave(object sender, EventArgs e)
+        {
+            panelTotalDeEstudos.BackColor = corPaielTotal;
+            labelTotalDeEstudos.ForeColor = Color.Black;
+
+        }
+
+        private void label2_DragLeave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_MouseLeave(object sender, EventArgs e)
+        {
+            panelMeninos.BackColor = corPaielTotal;
+            labelMeninos.ForeColor = Color.Black;
+
+        }
+
+        private void panelMeninas_MouseEnter(object sender, EventArgs e)
+        {
+            panelMeninos.BackColor = corPaielTotal;
+            labelMeninos.ForeColor = Color.Black;
+
+        }
+
+        private void panelMeninas_MouseLeave(object sender, EventArgs e)
+        {
+            panelMeninos.BackColor = corPaielTotal;
+            labelMeninos.ForeColor = Color.Black;
+
+        }
+
+        private void labelMeninas_MouseEnter(object sender, EventArgs e)
+        {
+            panelMeninos.BackColor = Color.Black;
+            labelMeninos.ForeColor = corPaielTotal;
+
+        }
+
+        private void labelMeninas_MouseLeave(object sender, EventArgs e)
+        {
+            panelMeninos.BackColor = corPaielTotal;
+            labelMeninos.ForeColor = Color.Black;
+
+        }
+
+        private void panelMeninos_MouseEnter(object sender, EventArgs e)
+        {
+            panelMeninos.BackColor = Color.Black;
+            labelMeninos.ForeColor = corPaielTotal;
+
+        }
+
+        private void panelMeninos_MouseLeave(object sender, EventArgs e)
+        {
+
+            panelMeninos.BackColor = corPaielTotal;
+            labelMeninos.ForeColor = Color.Black;
+        }
     }
 }
