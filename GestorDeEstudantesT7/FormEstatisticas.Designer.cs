@@ -58,6 +58,7 @@
             this.labelTotalDeEstudos.Size = new System.Drawing.Size(302, 29);
             this.labelTotalDeEstudos.TabIndex = 0;
             this.labelTotalDeEstudos.Text = "Total de Estudantes: 999";
+            this.labelTotalDeEstudos.MouseEnter += new System.EventHandler(this.labelTotalDeEstudos_MouseEnter);
             this.labelTotalDeEstudos.MouseLeave += new System.EventHandler(this.labelTotalDeEstudos_MouseLeave);
             // 
             // panelMeninas
@@ -93,7 +94,6 @@
             this.labelMeninos.TabIndex = 0;
             this.labelMeninos.Text = "Meninos: 50%";
             this.labelMeninos.Click += new System.EventHandler(this.label2_Click_1);
-            this.labelMeninos.DragLeave += new System.EventHandler(this.label2_DragLeave);
             this.labelMeninos.MouseEnter += new System.EventHandler(this.label2_MouseEnter);
             this.labelMeninos.MouseLeave += new System.EventHandler(this.label2_MouseLeave);
             // 
@@ -117,7 +117,7 @@
             this.Controls.Add(this.panelMeninas);
             this.Controls.Add(this.panelTotalDeEstudos);
             this.Name = "FormEstatisticas";
-            this.Text = "FormEstatisticas";
+            this.Text = "SGA - Estatisticas";
             this.Load += new System.EventHandler(this.FormEstatisticas_Load);
             this.panelTotalDeEstudos.ResumeLayout(false);
             this.panelTotalDeEstudos.PerformLayout();

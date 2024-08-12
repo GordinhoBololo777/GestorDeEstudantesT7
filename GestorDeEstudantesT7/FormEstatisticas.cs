@@ -19,7 +19,7 @@ namespace GestorDeEstudantesT7
 
 
         Color corPaielTotal;
-        Color corPainelMeninos;
+        Color corPalMeninos;
         Color corPainelMeninas;
 
         private void FormEstatisticas_Load(object sender, EventArgs e)
@@ -27,6 +27,22 @@ namespace GestorDeEstudantesT7
             corPaielTotal = panelTotalDeEstudos.BackColor;
             corPaielTotal = panelMeninos.BackColor;
             corPaielTotal = panelMeninas.BackColor;
+
+           //Exibe os valores (total geral, total de meninos, meninas etc)
+           Estudante estudante = new Estudante();
+            double totalEstudantes = Convert.ToDouble(estudante.totalDeEstudantes());
+            double totalMeninos = Convert.ToDouble(estudante.totalDeEstudantesMeninos()); 
+            double totalMeninas = Convert.ToDouble(estudante.totalDeEstudantesMeninas());
+
+            // Contar a porcetagem (%)
+            double porcenragemDeMeninos = totalMeninos * 100 / totalEstudantes;
+            double porcentagemDeMeninas = totalMeninas * 100 / totalEstudantes;
+
+            labelTotalDeEstudos.Text = "Total de Estudantes: " + totalEstudantes.ToString();
+            labelMeninos.Text = "% de Meninos: " + porcenragemDeMeninos.ToString("0.00") + "%";
+            labelMeninas.Text = "% de Meninas: " + porcentagemDeMeninas.ToString("0.00") + "%";
+
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -59,10 +75,7 @@ namespace GestorDeEstudantesT7
 
         }
 
-        private void label2_DragLeave(object sender, EventArgs e)
-        {
 
-        }
 
         private void label2_MouseLeave(object sender, EventArgs e)
         {
@@ -94,8 +107,8 @@ namespace GestorDeEstudantesT7
 
         private void labelMeninas_MouseLeave(object sender, EventArgs e)
         {
-            panelMeninos.BackColor = corPaielTotal;
-            labelMeninos.ForeColor = Color.Black;
+            panelMeninas.BackColor = corPaielTotal;
+            labelMeninas.ForeColor = Color.Black;
 
         }
 
@@ -111,6 +124,13 @@ namespace GestorDeEstudantesT7
 
             panelMeninos.BackColor = corPaielTotal;
             labelMeninos.ForeColor = Color.Black;
+        }
+
+        private void labelTotalDeEstudos_MouseEnter(object sender, EventArgs e)
+        {
+            panelTotalDeEstudos.BackColor = Color.Black;
+            labelTotalDeEstudos.ForeColor = corPaielTotal;
+
         }
     }
 }
